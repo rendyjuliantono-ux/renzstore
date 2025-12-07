@@ -1,0 +1,1143 @@
+/* Variabel CSS untuk Light dan Dark Mode */
+:root {
+    --primary: #00bfff;
+    --secondary: #ff6b6b;
+    --accent: #4ecdc4;
+    --success: #00b894;
+    --warning: #fdcb6e;
+    --info: #00a6ff;
+    
+    /* Light Mode Variables */
+    --bg-color: #f5f7ff;
+    --card-bg: #ffffff;
+    --text-color: #2d3436;
+    --text-secondary: #636e72;
+    --border-color: #dfe6e9;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    
+    --header-bg: linear-gradient(135deg, var(--primary), #6c5ce7);
+    --footer-bg: #2d3436;
+    --footer-text: #f8f9fa;
+    
+    --radius: 12px;
+    --transition: all 0.3s ease;
+}
+
+/* Dark Mode Variables */
+[data-theme="dark"] {
+    --bg-color: #1a1d21;
+    --card-bg: #2d3436;
+    --text-color: #f8f9fa;
+    --text-secondary: #b2bec3;
+    --border-color: #636e72;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    
+    --header-bg: linear-gradient(135deg, #2d3436, #1a1d21);
+    --footer-bg: #1a1d21;
+}
+
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: var(--transition);
+    padding-bottom: 70px; /* Space for bottom nav */
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: var(--primary);
+}
+
+/* ========== HEADER - PERBAIKAN UTAMA ========== */
+.cart-header {
+    background: var(--header-bg);
+    color: white;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.cart-header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.back-button {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: var(--transition);
+    flex-shrink: 0;
+}
+
+.back-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateX(-3px);
+}
+
+.header-title {
+    flex: 1;
+    text-align: center;
+    padding: 0 15px;
+}
+
+.header-title h1 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.header-spacer {
+    width: 30px; /* Sama dengan tombol kembali untuk keseimbangan */
+    flex-shrink: 0;
+}
+
+/* ========== SEARCH BAR ========== */
+.search-container {
+    margin-bottom: clamp(20px, 5vw, 25px);
+    width: 100%;
+}
+
+.search-bar {
+    display: flex;
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    width: 100%;
+}
+
+.search-input {
+    flex: 1;
+    padding: clamp(12px, 3vw, 15px) clamp(15px, 4vw, 20px);
+    border: none;
+    background: transparent;
+    color: var(--text-color);
+    font-size: clamp(0.95rem, 3vw, 1rem);
+    outline: none;
+    width: 100%;
+}
+
+.search-input::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.7;
+}
+
+.search-button {
+    padding: 0 clamp(15px, 4vw, 25px);
+    background: var(--primary);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: clamp(1rem, 3vw, 1.1rem);
+    transition: var(--transition);
+    white-space: nowrap;
+    min-width: 60px;
+}
+
+.search-button:hover {
+    background: #00a2e6;
+}
+
+.search-tips {
+    padding: clamp(8px, 2vw, 10px) 0 0 0;
+    color: var(--text-secondary);
+    font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+    text-align: center;
+    opacity: 0.8;
+    width: 100%;
+}
+
+.search-tips i {
+    color: var(--warning);
+    margin-right: 5px;
+}
+
+/* Cart Items */
+.cart-items {
+    margin-bottom: 20px;
+}
+
+.cart-item {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    box-shadow: var(--shadow);
+}
+
+.cart-item-image {
+    width: 70px;
+    height: 70px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-right: 15px;
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--primary);
+}
+
+.cart-item-info {
+    flex: 1;
+}
+
+.cart-item-name {
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 1rem;
+}
+
+.cart-item-variant {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 5px;
+}
+
+.cart-item-price {
+    font-weight: bold;
+    color: var(--primary);
+    font-size: 0.95rem;
+}
+
+.cart-item-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.quantity-btn {
+    width: 30px;
+    height: 30px;
+    background: var(--card-bg);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+.quantity-input {
+    width: 40px;
+    height: 30px;
+    border: none;
+    text-align: center;
+    background: var(--card-bg);
+    color: var(--text-color);
+}
+
+.remove-item {
+    color: var(--secondary);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+/* Cart Summary */
+.cart-summary {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 20px;
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+.summary-total {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border-color);
+}
+
+.checkout-btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1rem;
+}
+
+.checkout-btn:hover {
+    background: #3a5be0;
+    transform: translateY(-2px);
+}
+
+.checkout-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Empty Cart */
+.empty-cart {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.empty-cart-icon {
+    font-size: 4rem;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+}
+
+/* Payment Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    overflow-y: auto;
+    padding: 20px;
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 25px;
+    position: relative;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    animation: slideUp 0.3s;
+}
+
+@keyframes slideUp {
+    from { 
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to { 
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* TOMBOL CLOSE (X) - FIX UNTUK HP */
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: var(--transition);
+    background: none;
+    border: none;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    -webkit-tap-highlight-color: transparent !important;
+    z-index: 1001;
+}
+
+.close-modal:hover {
+    color: var(--secondary);
+    background: rgba(0, 0, 0, 0.05);
+    transform: rotate(90deg);
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Payment Methods */
+.payment-methods {
+    margin-bottom: 25px;
+}
+
+.payment-title {
+    font-weight: 600;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.payment-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.payment-option {
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition);
+    -webkit-tap-highlight-color: transparent !important;
+}
+
+.payment-option:hover {
+    border-color: var(--primary);
+}
+
+.payment-option.selected {
+    border-color: var(--primary);
+    background: rgba(74, 108, 250, 0.1);
+}
+
+.payment-icon {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: var(--primary);
+}
+
+.payment-name {
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+}
+
+.payment-desc {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+/* Payment Details */
+.payment-details {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: var(--radius);
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.payment-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+.payment-amount {
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 15px 0;
+}
+
+/* TOMBOL SALIN - FIX UNTUK HP */
+.copy-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    -webkit-tap-highlight-color: transparent !important;
+}
+
+.copy-btn:hover {
+    background: #136bad;
+}
+
+.copy-btn.copied {
+    background: var(--success) !important;
+}
+
+.copy-btn.copied::after {
+    content: ' ✓ Tersalin!';
+    animation: fadeIn 0.3s;
+}
+
+.continue-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background: var(--success);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1rem;
+    -webkit-tap-highlight-color: transparent !important;
+}
+
+.continue-btn:hover {
+    background: #10bfff;
+}
+
+.continue-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.disclaimer {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* Footer */
+footer {
+    background: var(--footer-bg);
+    color: var(--footer-text);
+    padding: 40px 0 20px;
+    margin-top: 40px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.footer-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: var(--primary);
+}
+
+.footer-section p {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.footer-section a {
+    color: var(--footer-text);
+    text-decoration: none;
+    transition: var(--transition);
+    display: block;
+    margin-bottom: 8px;
+    opacity: 0.8;
+    font-size: 0.9rem;
+}
+
+.footer-section a:hover {
+    opacity: 1;
+    color: var(--primary);
+    transform: translateX(5px);
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.social-icons a:hover {
+    background: var(--primary);
+    transform: translateY(-3px);
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    z-index: 100;
+    transition: var(--transition);
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* Card Badge */
+.cart-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: var(--secondary);
+    color: white;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+        /* Bottom Navigation */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--card-bg);
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 90;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-item:hover {
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .nav-item.active {
+            color: var(--primary);
+        }
+
+        .nav-item i {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+/* GOOGLE FORM BUTTON STYLES */
+.google-form-btn {
+    background: linear-gradient(135deg, #39475b00 0%);
+    color: aqua;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(66, 133, 244, 0.2);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    margin-top: 10px;
+}
+
+.google-form-btn:hover {
+    background: linear-gradient(135deg, #6495ff 0%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(66, 133, 244, 0.3);
+}
+
+.google-form-btn:active {
+    transform: translateY(0);
+}
+
+.google-form-btn i {
+    font-size: 16px;
+}
+
+/* Notification styles */
+.custom-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 9999;
+    animation: slideInRight 0.3s ease;
+    max-width: 300px;
+    border-left: 4px solid #4285F4;
+    font-size: 14px;
+}
+
+.notification-info {
+    background: #E8F0FE;
+    color: #0C4B8A;
+    border-left-color: #4285F4;
+}
+
+.notification-success {
+    background: #D4EDDA;
+    color: #155724;
+    border-left-color: #28a745;
+}
+
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .payment-options {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .cart-item {
+        flex-direction: row;
+        align-items: center;
+        padding: 12px;
+    }
+    
+    .cart-item-image {
+        width: 60px;
+        height: 60px;
+        font-size: 1.2rem;
+    }
+    
+    .cart-item-name {
+        font-size: 0.95rem;
+    }
+    
+    .cart-item-price {
+        font-size: 0.9rem;
+    }
+    
+    .header-title h1 {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .modal-content {
+        margin: 20px auto;
+        padding: 20px 15px;
+        width: 95%;
+    }
+    
+    .payment-options {
+        grid-template-columns: 1fr;
+    }
+    
+    .cart-item {
+        flex-wrap: wrap;
+    }
+    
+    .cart-item-controls {
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 10px;
+        padding-top: 10px;
+        border-top: 1px solid var(--border-color);
+    }
+    
+    .header-title h1 {
+        font-size: 1rem;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 400px) {
+    .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .cart-item-image {
+        margin-bottom: 10px;
+        margin-right: 0;
+        width: 80px;
+        height: 80px;
+    }
+    
+    .cart-item-info {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    .cart-item-controls {
+        width: 100%;
+    }
+}
+
+/* ========== FIX MODAL PAYMENT UNTUK HP ========== */
+    
+    .modal-content {
+        width: 95%;
+        max-width: 400px;
+        margin: 20px auto;
+        padding: 20px;
+        max-height: 85vh;
+        overflow-y: auto;
+        position: relative;
+    }
+    
+    .modal-title {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+    
+    .payment-options {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+    
+    .payment-option {
+        padding: 10px;
+        min-height: 90px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .payment-icon {
+        font-size: 1.5rem;
+        margin-bottom: 5px;
+    }
+    
+    .payment-name {
+        font-size: 0.85rem;
+        margin-bottom: 3px;
+    }
+    
+    .payment-desc {
+        font-size: 0.7rem;
+    }
+    
+    .payment-info {
+        font-size: 0.9rem;
+        margin-bottom: 8px;
+    }
+    
+    .payment-amount {
+        font-size: 1.1rem;
+        margin: 10px 0;
+    }
+    
+    .copy-btn,
+    .continue-btn {
+        padding: 10px;
+        font-size: 0.9rem;
+        margin-top: 15px;
+    }
+    
+    .disclaimer {
+        font-size: 0.75rem;
+        margin-top: 10px;
+    }
+    
+    /* QRIS Image di HP */
+    .qris-image {
+        max-width: 150px;
+        padding: 8px;
+    }
+    
+    .qris-note {
+        font-size: 0.7rem;
+    }
+    
+    /* Form reminder di modal */
+    #formReminder {
+        margin-top: 15px;
+        padding: 12px;
+    }
+    
+    #formReminder h4 {
+        font-size: 0.9rem !important;
+        margin-bottom: 5px !important;
+    }
+    
+    #formReminder p {
+        font-size: 0.8rem !important;
+        margin-bottom: 10px !important;
+        line-height: 1.3 !important;
+    }
+    
+    .google-form-btn {
+        padding: 10px 15px;
+        font-size: 0.85rem;
+        margin-top: 8px;
+    }
+    
+    #formReminder .fas.fa-exclamation-circle {
+        font-size: 16px !important;
+    }
+
+@media (max-width: 576px) {
+    .modal-content {
+        width: 98%;
+        padding: 15px;
+        margin: 10px auto;
+        max-height: 90vh;
+    }
+    
+    .payment-options {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .payment-option {
+        min-height: 85px;
+    }
+    
+    .payment-title {
+        font-size: 1rem;
+        margin-bottom: 12px;
+    }
+    
+    .modal-title {
+        font-size: 1.2rem;
+    }
+    
+    /* Header modal lebih kecil */
+    .close-modal {
+        top: 10px;
+        right: 10px;
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .modal-content {
+        padding: 12px;
+        margin: 5px auto;
+    }
+    
+    .payment-options {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+    }
+    
+    .payment-option {
+        padding: 8px;
+        min-height: 80px;
+    }
+    
+    .payment-icon {
+        font-size: 1.3rem;
+    }
+    
+    .payment-name {
+        font-size: 0.8rem;
+    }
+    
+    .payment-desc {
+        font-size: 0.65rem;
+    }
+    
+    .payment-info {
+        font-size: 0.85rem;
+    }
+    
+    .payment-amount {
+        font-size: 1rem;
+    }
+    
+    .copy-btn,
+    .continue-btn {
+        padding: 8px;
+        font-size: 0.85rem;
+    }
+    
+    /* QRIS Image lebih kecil */
+    .qris-image {
+        max-width: 100px;
+    }
+}
+
+/* Fix untuk scroll modal di HP */
+.modal-content::-webkit-scrollbar {
+    width: 5px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.1);
+    border-radius: 10px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 10px;
+}
+
+/* Pastikan modal tidak keluar dari viewport */
+@media (max-height: 600px) {
+    .modal-content {
+        max-height: calc(100vh - 20px);
+        margin: 10px auto;
+    }
+    
+    .modal {
+        padding: 5px;
+        align-items: flex-start;
+        padding-top: 10px;
+    }
+}
+
+/* FIX UNTUK HILANGKAN HIGHLIGHT BIRU DI HP */
+button,
+a,
+input,
+textarea,
+select,
+.close-modal,
+.payment-option,
+.copy-btn,
+.continue-btn,
+.google-form-btn,
+.quantity-btn,
+.remove-item,
+.checkout-btn,
+.theme-toggle,
+.nav-item,
+.back-button {
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-touch-callout: none !important;
+    user-select: none !important;
+    outline: none !important;
+}
+
+/* Untuk accessibility (keyboard navigation) */
+button:focus-visible,
+a:focus-visible,
+.close-modal:focus-visible {
+    outline: 2px solid var(--primary) !important;
+    outline-offset: 2px !important;
+}

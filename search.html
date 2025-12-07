@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cari Produk - Renz Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="Cari produk digital dengan harga pelajar di Renz Store.">
+    <meta name="keywords" content="Renz Store, marketplace, jualan murah, gratis ongkir">
+    <meta property="og:title" content="Renz Store || Cari Produk">
+    <meta property="og:description" content="Cari produk digital dengan harga pelajar.">
+    <meta property="og:image" content="img/favicon.png">
+    <meta property="og:url" content="https://marketplace.zass.cloud/search">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/search.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="search-header">
+        <div class="container">
+            <div class="header-content">
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Search Bar -->
+        <div class="search-container">
+            <div class="search-bar">
+                <input type="text" class="search-input" id="searchInput" placeholder="Cari produk atau kategori...">
+                <button class="search-button" id="searchButton"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="search-tips" id="searchTips">
+                <small><i class="fas fa-lightbulb"></i> Contoh: "netflix premium 1 bulan" atau "laporan pkl"</small>
+            </div>
+        </div>
+
+        <!-- Quick Filters -->
+        <div class="quick-filters" id="quickFilters">
+            <button class="filter-btn active" data-category="all">Semua</button>
+            <button class="filter-btn" data-category="Joki Laporan">Joki Laporan</button>
+            <button class="filter-btn" data-category="Desain & Editing">Desain & Editing</button>
+            <button class="filter-btn" data-category="Produk Digital">Produk Digital</button>
+            <button class="filter-btn" data-category="Nokos WhatsApp">Nokos WhatsApp</button>
+        </div>
+
+        <!-- Results Info -->
+        <div class="results-info">
+            <div id="resultsCount">0 produk ditemukan</div>
+            <div class="sort-options">
+                <select id="sortSelect">
+                    <option value="name">Urut: Nama A-Z</option>
+                    <option value="price_low">Harga: Termurah</option>
+                    <option value="price_high">Harga: Termahal</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="products-grid" id="productsGrid">
+            <!-- Produk akan dimuat di sini -->
+        </div>
+
+        <!-- No Results -->
+        <div class="no-results" id="noResults" style="display: none;">
+            <div class="no-results-icon">
+                <i class="fas fa-search"></i>
+            </div>
+            <h3>Tidak ada hasil ditemukan</h3>
+            <p>Coba kata kunci lain atau pilih kategori berbeda</p>
+        </div>
+    </main>
+
+    <!-- Product Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <div class="product-detail-header">
+                <div class="product-detail-icon" id="modalIcon"></div>
+                <div class="product-detail-title">
+                    <h2 class="modal-title" id="modalProductName"></h2>
+                    <div class="product-detail-price" id="modalPrice"></div>
+                </div>
+            </div>
+            <div class="product-detail-description" id="modalProductDescription"></div>
+            
+            <div class="variant-selection">
+                <h3 class="variant-title">Pilih Varian:</h3>
+                <div class="variant-options" id="variantOptions"></div>
+            </div>
+            
+            <button class="add-to-cart-btn" id="addToCartBtn">Tambah ke Keranjang</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Tentang Kami</h3>
+                    <p id="aboutText"></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Kontak Kami</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> <span id="alamat"></span></p>
+                    <p><i class="fas fa-phone"></i> <span id="wa"></span></p>
+                    <p><i class="fas fa-envelope"></i> <span id="email"></span></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Link Cepat</h3>
+                    <a href="index.html">Beranda</a>
+                    <a href="search.html">Cari</a>
+                    <a href="keranjang.html">Keranjang</a>
+                    <a href="profil.html">Profil</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Ikuti Kami</h3>
+                    <div class="social-icons">
+                        <a id="ytLink" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a id="tiktokLink" target="_blank"><i class="fab fa-tiktok"></i></a>
+                        <a id="waLink" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a id="telegramLink" target="_blank"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p id="copyright"></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Theme Toggle -->
+    <div class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></div>
+
+    <!-- Bottom Navigation -->
+    <div class="bottom-nav">
+        <a href="index.html" class="nav-item"><i class="fas fa-home"></i><span>Beranda</span></a>
+        <a href="search.html" class="nav-item active"><i class="fas fa-search"></i><span>Cari</span></a>
+        <a href="keranjang.html" class="nav-item"><i class="fas fa-shopping-cart"></i><span>Keranjang</span><span class="cart-badge" id="cartBadge">0</span></a>
+        <a href="profil.html" class="nav-item"><i class="fas fa-user"></i><span>Profil</span></a>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script>
+        // ========== KONFIGURASI ==========
+        document.getElementById("aboutText").innerText = CONFIG.tentang;
+        document.getElementById("alamat").innerText = CONFIG.alamat;
+        document.getElementById("wa").innerText = CONFIG.sosial_media.whatsapp;
+        document.getElementById("email").innerText = CONFIG.sosial_media.email;
+        document.getElementById("ytLink").href = "https://youtube.com/" + CONFIG.sosial_media.youtube;
+        document.getElementById("tiktokLink").href = "https://tiktok.com/@" + CONFIG.sosial_media.tiktok;
+        document.getElementById("waLink").href = "https://wa.me/" + CONFIG.sosial_media.whatsapp;
+        document.getElementById("telegramLink").href = "https://t.me/" + CONFIG.sosial_media.telegram;
+        document.getElementById("copyright").innerText = `© ${new Date().getFullYear()} ${CONFIG.nama}. All Rights Reserved.`;
+
+        // ========== VARIABEL ==========
+        const searchInput = document.getElementById('searchInput');
+        const searchButton = document.getElementById('searchButton');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const sortSelect = document.getElementById('sortSelect');
+        const productsGrid = document.getElementById('productsGrid');
+        const noResults = document.getElementById('noResults');
+        const resultsCount = document.getElementById('resultsCount');
+        const productModal = document.getElementById('productModal');
+        const closeModal = document.getElementById('closeModal');
+        const modalIcon = document.getElementById('modalIcon');
+        const modalProductName = document.getElementById('modalProductName');
+        const modalPrice = document.getElementById('modalPrice');
+        const modalProductDescription = document.getElementById('modalProductDescription');
+        const variantOptions = document.getElementById('variantOptions');
+        const addToCartBtn = document.getElementById('addToCartBtn');
+        const themeToggle = document.getElementById('themeToggle');
+        const cartBadge = document.getElementById('cartBadge');
+
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let selectedProduct = null;
+        let selectedVariant = null;
+        let allProducts = [];
+        let allVariants = []; // Array baru untuk semua varian
+        let currentCategory = 'all';
+        let currentSearch = '';
+        let currentSort = 'name';
+        let exactMatchVariantIndex = -1; // Untuk menyimpan varian yang tepat
+
+        // ========== FUNGSI UTAMA ==========
+        function init() {
+            extractAllProductsAndVariants();
+            updateCartBadge();
+            renderProducts();
+            setupEventListeners();
+            
+            // Theme
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+                themeToggle.innerHTML = savedTheme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+            }
+            
+            // Cek URL untuk search parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const q = urlParams.get('q');
+            if (q) {
+                searchInput.value = q;
+                currentSearch = q.toLowerCase();
+                filterProducts();
+            }
+        }
+
+        function extractAllProductsAndVariants() {
+            allProducts = [];
+            allVariants = [];
+            
+            for (const category in productsData) {
+                productsData[category].forEach(product => {
+                    // Tambahkan kategori ke product
+                    product.category = category;
+                    
+                    // Tambahkan semua varian ke array terpisah untuk pencarian
+                    product.variants.forEach((variant, index) => {
+                        allVariants.push({
+                            product: product,
+                            variant: variant,
+                            variantIndex: index,
+                            searchText: `${product.name} ${variant.name}`.toLowerCase(),
+                            category: category
+                        });
+                    });
+                    
+                    // Tambahkan search text untuk pencarian yang lebih baik
+                    product.searchText = (
+                        product.name.toLowerCase() + ' ' +
+                        product.description.toLowerCase() + ' ' +
+                        product.variants.map(v => v.name.toLowerCase()).join(' ')
+                    );
+                    
+                    allProducts.push(product);
+                });
+            }
+        }
+
+        function renderProducts() {
+            let filtered = filterProductsByCategory();
+            filtered = filterProductsBySearch(filtered);
+            filtered = sortProducts(filtered);
+            
+            if (filtered.length === 0) {
+                productsGrid.style.display = 'none';
+                noResults.style.display = 'block';
+                resultsCount.textContent = '0 produk ditemukan';
+                return;
+            }
+            
+            productsGrid.style.display = 'grid';
+            noResults.style.display = 'none';
+            resultsCount.textContent = `${filtered.length} produk ditemukan`;
+            
+            productsGrid.innerHTML = '';
+            filtered.forEach(product => {
+                const priceRange = getPriceRange(product.variants);
+                
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                productCard.innerHTML = `
+                    <div class="product-icon">
+                        <i class="${product.icon}"></i>
+                    </div>
+                    <h3 class="product-name">${product.name}</h3>
+                    <p class="product-category">${product.category}</p>
+                    <div class="product-price">${priceRange}</div>
+                    <div class="product-variant-count">${product.variants.length} varian</div>
+                `;
+                
+                productCard.addEventListener('click', () => openProductModal(product));
+                productsGrid.appendChild(productCard);
+            });
+        }
+
+        function filterProductsByCategory() {
+            if (currentCategory === 'all') return allProducts;
+            return allProducts.filter(product => product.category === currentCategory);
+        }
+
+        function filterProductsBySearch(products) {
+            if (!currentSearch) return products;
+            
+            // Cari varian yang paling cocok terlebih dahulu
+            const matchedVariants = findMatchingVariants(currentSearch);
+            
+            if (matchedVariants.length > 0) {
+                // Jika ada varian yang cocok, ambil produknya
+                const matchedProducts = [...new Set(matchedVariants.map(v => v.product))];
+                return matchedProducts;
+            }
+            
+            // Jika tidak ada varian yang cocok, cari di produk biasa
+            const searchTerms = currentSearch.toLowerCase().split(' ').filter(term => term.length > 0);
+            return products.filter(product => {
+                const text = product.searchText;
+                return searchTerms.every(term => text.includes(term));
+            });
+        }
+
+        function findMatchingVariants(searchTerm) {
+            const searchLower = searchTerm.toLowerCase();
+            const results = [];
+            
+            allVariants.forEach(variantData => {
+                const variantName = variantData.variant.name.toLowerCase();
+                const productName = variantData.product.name.toLowerCase();
+                const fullName = `${productName} ${variantName}`;
+                
+                // Skor kecocokan (semakin tinggi semakin cocok)
+                let score = 0;
+                
+                // Exact match pada varian name
+                if (variantName === searchLower) score += 100;
+                
+                // Exact match pada full name
+                if (fullName === searchLower) score += 90;
+                
+                // Contains pada varian name
+                if (variantName.includes(searchLower)) score += 80;
+                
+                // Contains pada full name
+                if (fullName.includes(searchLower)) score += 70;
+                
+                // Split search terms
+                const searchTerms = searchLower.split(' ').filter(t => t.length > 2);
+                if (searchTerms.length > 0) {
+                    let matchCount = 0;
+                    searchTerms.forEach(term => {
+                        if (variantName.includes(term)) matchCount++;
+                        if (productName.includes(term)) matchCount++;
+                    });
+                    score += matchCount * 20;
+                }
+                
+                if (score > 0) {
+                    results.push({
+                        ...variantData,
+                        score: score
+                    });
+                }
+            });
+            
+            // Urutkan berdasarkan skor tertinggi
+            return results.sort((a, b) => b.score - a.score);
+        }
+
+        function sortProducts(products) {
+            return [...products].sort((a, b) => {
+                switch(currentSort) {
+                    case 'name':
+                        return a.name.localeCompare(b.name);
+                    case 'price_low':
+                        return getMinPrice(a.variants) - getMinPrice(b.variants);
+                    case 'price_high':
+                        return getMaxPrice(b.variants) - getMaxPrice(a.variants);
+                    default:
+                        return 0;
+                }
+            });
+        }
+
+        function getMinPrice(variants) {
+            const prices = variants.map(v => typeof v.price === 'number' ? v.price : Infinity);
+            return Math.min(...prices);
+        }
+
+        function getMaxPrice(variants) {
+            const prices = variants.map(v => typeof v.price === 'number' ? v.price : -Infinity);
+            return Math.max(...prices);
+        }
+
+        function getPriceRange(variants) {
+            const prices = variants.map(v => typeof v.price === 'number' ? v.price : 0).filter(p => p > 0);
+            if (prices.length === 0) return 'Harga sesuai request';
+            
+            const minPrice = Math.min(...prices);
+            const maxPrice = Math.max(...prices);
+            
+            if (minPrice === maxPrice) {
+                return `Rp ${minPrice.toLocaleString('id-ID')}`;
+            }
+            return `Rp ${minPrice.toLocaleString('id-ID')} - Rp ${maxPrice.toLocaleString('id-ID')}`;
+        }
+
+        // ========== EVENT LISTENERS ==========
+        function setupEventListeners() {
+            themeToggle.addEventListener('click', toggleTheme);
+            searchButton.addEventListener('click', handleSearch);
+            searchInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') handleSearch();
+            });
+            closeModal.addEventListener('click', closeProductModal);
+            addToCartBtn.addEventListener('click', addToCart);
+            sortSelect.addEventListener('change', handleSortChange);
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentCategory = btn.dataset.category;
+                    renderProducts();
+                });
+            });
+            
+            // Search input real-time
+            let searchTimeout;
+            searchInput.addEventListener('input', () => {
+                clearTimeout(searchTimeout);
+                searchTimeout = setTimeout(() => {
+                    const value = searchInput.value.trim();
+                    if (value === '') {
+                        currentSearch = '';
+                        renderProducts();
+                    } else if (value.length >= 2) {
+                        currentSearch = value.toLowerCase();
+                        renderProducts();
+                    }
+                }, 300);
+            });
+        }
+
+        function handleSearch() {
+            currentSearch = searchInput.value.trim().toLowerCase();
+            
+            // Cari varian yang tepat
+            const matchedVariants = findMatchingVariants(currentSearch);
+            
+            if (matchedVariants.length > 0) {
+                // Ambil varian dengan skor tertinggi
+                const bestMatch = matchedVariants[0];
+                
+                // Set flag untuk varian yang akan di-select
+                exactMatchVariantIndex = bestMatch.variantIndex;
+                
+                // Tunggu sebentar lalu buka modal
+                setTimeout(() => {
+                    openProductModal(bestMatch.product);
+                    
+                    // Auto-select varian yang cocok
+                    setTimeout(() => {
+                        if (exactMatchVariantIndex >= 0) {
+                            const variantElements = document.querySelectorAll('.variant-option');
+                            if (variantElements[exactMatchVariantIndex]) {
+                                variantElements.forEach(el => el.classList.remove('selected'));
+                                variantElements[exactMatchVariantIndex].classList.add('selected');
+                                selectedVariant = exactMatchVariantIndex;
+                                updateModalPrice();
+                                
+                                // Scroll ke varian yang dipilih
+                                variantElements[exactMatchVariantIndex].scrollIntoView({
+                                    behavior: 'smooth',
+                                    block: 'center'
+                                });
+                            }
+                        }
+                    }, 100);
+                }, 300);
+            } else if (currentSearch) {
+                // Jika tidak ada varian yang cocok, cari produk biasa
+                const filtered = filterProductsBySearch(filterProductsByCategory());
+                if (filtered.length === 1) {
+                    setTimeout(() => {
+                        openProductModal(filtered[0]);
+                    }, 300);
+                }
+            }
+            
+            renderProducts();
+            
+            // Update URL tanpa reload page
+            const url = new URL(window.location);
+            if (currentSearch) {
+                url.searchParams.set('q', currentSearch);
+            } else {
+                url.searchParams.delete('q');
+            }
+            window.history.pushState({}, '', url);
+        }
+
+        function handleSortChange() {
+            currentSort = sortSelect.value;
+            renderProducts();
+        }
+
+        // ========== PRODUCT MODAL ==========
+        function openProductModal(product) {
+            selectedProduct = product;
+            selectedVariant = exactMatchVariantIndex >= 0 ? exactMatchVariantIndex : 0;
+            exactMatchVariantIndex = -1; // Reset setelah digunakan
+            
+            modalIcon.innerHTML = `<i class="${product.icon}"></i>`;
+            modalProductName.textContent = product.name;
+            modalProductDescription.textContent = product.description;
+            
+            updateModalPrice();
+            
+            variantOptions.innerHTML = '';
+            product.variants.forEach((variant, index) => {
+                const variantOption = document.createElement('div');
+                variantOption.className = 'variant-option';
+                if (index === selectedVariant) variantOption.classList.add('selected');
+                variantOption.innerHTML = `
+                    <div class="variant-name">${variant.name}</div>
+                    <div class="variant-price">${typeof variant.price === 'number' ? 'Rp ' + variant.price.toLocaleString('id-ID') : variant.price}</div>
+                `;
+                
+                variantOption.addEventListener('click', () => {
+                    document.querySelectorAll('.variant-option').forEach(item => {
+                        item.classList.remove('selected');
+                    });
+                    variantOption.classList.add('selected');
+                    selectedVariant = index;
+                    updateModalPrice();
+                });
+                
+                variantOptions.appendChild(variantOption);
+            });
+            
+            productModal.style.display = 'block';
+        }
+
+        function updateModalPrice() {
+            if (selectedProduct && selectedVariant !== null) {
+                const variant = selectedProduct.variants[selectedVariant];
+                modalPrice.textContent = typeof variant.price === 'number' 
+                    ? `Rp ${variant.price.toLocaleString('id-ID')}`
+                    : variant.price;
+            }
+        }
+
+        function closeProductModal() {
+            productModal.style.display = 'none';
+            selectedProduct = null;
+            selectedVariant = null;
+            exactMatchVariantIndex = -1;
+        }
+
+        // ========== CART FUNCTIONS ==========
+        function addToCart() {
+            if (!selectedProduct || selectedVariant === null) {
+                alert('Pilih varian terlebih dahulu!');
+                return;
+            }
+
+            const variant = selectedProduct.variants[selectedVariant];
+            
+            if (typeof variant.price !== 'number') {
+                alert('Produk ini memiliki harga khusus. Silakan hubungi admin.');
+                return;
+            }
+            
+            const existingItemIndex = cart.findIndex(item => 
+                item.productId === selectedProduct.id && item.variantName === variant.name
+            );
+
+            if (existingItemIndex >= 0) {
+                cart[existingItemIndex].quantity += 1;
+            } else {
+                cart.push({
+                    productId: selectedProduct.id,
+                    productName: selectedProduct.name,
+                    variantName: variant.name,
+                    price: variant.price,
+                    quantity: 1,
+                    icon: selectedProduct.icon
+                });
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartBadge();
+            
+            // Show toast notification
+            showToast(`${selectedProduct.name} (${variant.name}) ditambahkan ke keranjang`);
+            
+            closeProductModal();
+        }
+
+        function updateCartBadge() {
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            cartBadge.textContent = totalItems;
+        }
+
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.innerHTML = `
+                <i class="fas fa-check-circle"></i>
+                <span>${message}</span>
+            `;
+            
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.remove();
+            }, 3000);
+        }
+
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            themeToggle.innerHTML = newTheme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        }
+
+        // ========== START ==========
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>

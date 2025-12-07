@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renz Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="Temukan berbagai produk digital dengan harga pelajar.">
+    <meta name="keywords" content="renz store, marketplace, jualan murah, gratis ongkir">
+    <meta property="og:title" content="Renz Store ID">
+    <meta property="og:description" content="Temukan berbagai produk digital dengan harga pelajar.">
+    <meta property="og:image" content="https://preview-market.vercel.app/img/favicon.png">
+    <meta property="og:url" content="https://preview-market.vercel.app">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <!-- Header & Banner -->
+    <header>
+        <div class="container">
+            <div class="banner">
+                <img id="bannerImage" alt="Store Banner">
+<h2 id="storeTitle"></h2>
+                    <p id="greeting-text">Selamat berbelanja!</p>
+                </div>
+            </div>
+
+            <!-- Profile Section -->
+            <div class="profile">
+                <div class="profile-img" id="profileImage">
+                    <img id="profilePic" alt="Profile">
+                    <div class="verified-badge" id="verifiedBadge">
+                        <i class="fas fa-check"></i>
+                    </div>
+                </div>
+                <div class="profile-info">
+                    <h1 id="profileName"></h1>
+                    <p>⭐ 4.9 (1,297 Ulasan) | Bebas Biaya Admin</p>
+                </div>
+            </div>
+
+            <!-- Stats Section -->
+            <div class="stats-section">
+                <div class="stat-item">
+                    <div class="stat-value">1.7K</div>
+                    <div class="stat-label">Total Terjual</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">963</div>
+                    <div class="stat-label">Pelanggan</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">97%</div>
+                    <div class="stat-label">Kepuasan</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Products Section -->
+        <div class="products-container" id="productsContainer">
+            <!-- Products will be loaded by JavaScript -->
+        </div>
+
+        <!-- FAQ Section - Moved Up -->
+        <div class="faq-section">
+            <h2 class="section-title">Pertanyaan Umum</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Bagaimana cara melakukan pemesanan?
+                        <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Pilih produk yang ingin dibeli, lalu klik pada produk untuk melihat detail dan varian. Setelah memilih varian, klik tombol "Tambah ke Keranjang".</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Berapa lama waktu pengiriman?
+                        <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Pesanan masuk, langsung di proses sesuai antrian.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Apakah produk dijamin original?
+                        <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Ya, semua produk yang kami jual 100% original dan bergaransi resmi. Kami memberikan garansi uang kembali jika produk terbukti tidak original.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Misalkan stock habis apakah nanti uangnya bisa di kembalikan?
+                        <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Ya, Kami memberikan garansi uang kembali jika stock produk tidak tersedia.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Metode pembayaran apa saja yang diterima?
+                        <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Kami menerima transfer bank (SeaBank), e-wallet (Dana, GoPay, Ovo, ShopeePay), serta QRIS.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonials Section - Redesigned -->
+        <div class="testimonials-container">
+            <h2 class="section-title">Testimoni Pelanggan</h2>
+            <div class="testimonials">
+                <div class="testimonial-slider" id="testimonialSlider">
+                    <div class="testimonial-slide">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">
+                                <img src="img/vin.jpg" alt="Vinn P.">
+                            </div>
+                            <div class="testimonial-user">
+                                <div class="testimonial-user-name">Vinn P.</div>
+                                <div class="testimonial-user-location">Kebumen</div>
+                            </div>
+                            <div class="testimonial-rating">
+                                ⭐⭐⭐⭐⭐
+                            </div>
+                        </div>
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">Pelayanan sangat cepat dan juga ramah. Mantap pokoknya puas dengan pelayanannya. Recommend banget!</p>
+                            <div class="testimonial-date">12 Juni 2025</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">
+                                <img src="img/latvia.jpg" alt="Latviaa">
+                            </div>
+                            <div class="testimonial-user">
+                                <div class="testimonial-user-name">Latviaa</div>
+                                <div class="testimonial-user-location">Rowokele</div>
+                            </div>
+                            <div class="testimonial-rating">
+                                ⭐⭐⭐⭐⭐
+                            </div>
+                        </div>
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">Aku beli Viu Premium disini puas bgt, harganya murah bgt, mana seumur hidup pula. Josjis pokokna mah. Atminnya juga responsif.</p>
+                            <div class="testimonial-date">14 Juli 2025</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">
+                                <img src="img/david.jpg" alt="David S.">
+                            </div>
+                            <div class="testimonial-user">
+                                <div class="testimonial-user-name">David S.</div>
+                                <div class="testimonial-user-location">Puring</div>
+                            </div>
+                            <div class="testimonial-rating">
+                                ⭐⭐⭐⭐⭐
+                            </div>
+                        </div>
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">Mantap, order Joki Laporan PKL Lokal cuma 70k, formatnya sesuai bentuk yang di berikan guru. Langsung approve di acc tanpa revisi! Layout rapi dan format sesuai.</p>
+                            <div class="testimonial-date">03 Agustus 2025</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">
+                                <img src="img/arif.jpg" alt="Arif F.">
+                            </div>
+                            <div class="testimonial-user">
+                                <div class="testimonial-user-name">Arif F.</div>
+                                <div class="testimonial-user-location">Sempor</div>
+                            </div>
+                            <div class="testimonial-rating">
+                                ⭐⭐⭐⭐⭐
+                            </div>
+                        </div>
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">Saya Joki Laporan PKL PT, hasilnya rapi banget woiilah! Margin, spacing, nomor halaman semua sesuai format. Free revisi sampe di acc juga. Suwun Mas Renz.</p>
+                            <div class="testimonial-date">27 Juni 2025</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">
+                                <img src="img/aca.jpg" alt="Acaa">
+                            </div>
+                            <div class="testimonial-user">
+                                <div class="testimonial-user-name">Acaa</div>
+                                <div class="testimonial-user-location">Ngaliyan</div>
+                            </div>
+                            <div class="testimonial-rating">
+                                ⭐⭐⭐⭐⭐
+                            </div>
+                        </div>
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">Spotify premium student private cuma 12rb per bulan! Udah 23 harian aman² aja, ga pernah kena logout. Worth it banget harganya!</p>
+                            <div class="testimonial-date">16 November 2025</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">
+                                <img src="img/putra.jpg" alt="Putra J.">
+                            </div>
+                            <div class="testimonial-user">
+                                <div class="testimonial-user-name">Putra J.</div>
+                                <div class="testimonial-user-location">Gombong</div>
+                            </div>
+                            <div class="testimonial-rating">
+                                ⭐⭐⭐⭐⭐
+                            </div>
+                        </div>
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">Solusi yang males skip iklan, order YouTube Premium FamPlan 10rb via invite, lewat email sendiri. Udah order yang ke 2 kalinya. Hemat banget dibanding beli langsung di apknya!</p>
+                            <div class="testimonial-date">08 Oktober 2025</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">
+                                <img src="img/nando.jpg" alt="Revando R.">
+                            </div>
+                            <div class="testimonial-user">
+                                <div class="testimonial-user-name">Revando R.</div>
+                                <div class="testimonial-user-location">Rowokele</div>
+                            </div>
+                            <div class="testimonial-rating">
+                                ⭐⭐⭐⭐⭐
+                            </div>
+                        </div>
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">Rendy anjayyy, Alight Motion siki regane 5k wingi nyong tuku 15k jirr, tpi lumayan lahh setaun nggo ngedit jedag jedug</p>
+                            <div class="testimonial-date">26 November 2025</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">
+                                <img src="img/miftah.jpg" alt="Miftah A.">
+                            </div>
+                            <div class="testimonial-user">
+                                <div class="testimonial-user-name">Miftah A.</div>
+                                <div class="testimonial-user-location">Rowokele</div>
+                            </div>
+                            <div class="testimonial-rating">
+                                ⭐⭐⭐⭐⭐
+                            </div>
+                        </div>
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">Worth it si Bstation 3 bulanan, g ada iklan, meskipun sharing tpi g masalah, soalnya minusnya cuma di history tontonan doang, bisa download series juga. Lebih hemat juga dari harga aslinya.</p>
+                            <div class="testimonial-date">16 November 2025</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">
+                                <img src="img/riski.jpg" alt="Risky W.">
+                            </div>
+                            <div class="testimonial-user">
+                                <div class="testimonial-user-name">Risky W.</div>
+                                <div class="testimonial-user-location">Sempor</div>
+                            </div>
+                            <div class="testimonial-rating">
+                                ⭐⭐⭐⭐⭐
+                            </div>
+                        </div>
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">Josss bos. YouTube Premium murah, arep order maning lah aku, ws order 4x kie. Alergi nontoni iklan.</p>
+                            <div class="testimonial-date">07 November 2025</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">
+                                <img src="img/rifki.jpg" alt="Rifki F.">
+                            </div>
+                            <div class="testimonial-user">
+                                <div class="testimonial-user-name">Rifki F.</div>
+                                <div class="testimonial-user-location">Gombong</div>
+                            </div>
+                            <div class="testimonial-rating">
+                                ⭐⭐⭐⭐⭐
+                            </div>
+                        </div>
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">Mantap bang bawuk. Bstation 1 Tahun 20k, apa ra rugi koh.</p>
+                            <div class="testimonial-date">03 November 2025</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">
+                                <img src="img/dion.jpg" alt="Puying jr.">
+                            </div>
+                            <div class="testimonial-user">
+                                <div class="testimonial-user-name">Puying jr.</div>
+                                <div class="testimonial-user-location">Rowokele</div>
+                            </div>
+                            <div class="testimonial-rating">
+                                ⭐⭐⭐⭐⭐
+                            </div>
+                        </div>
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">Hoki atau apa ini, dikasi nokos old yang grupnya ratusan, cocok buat ngejb sih, asal Verif2L aktif trs & email tertaut.</p>
+                            <div class="testimonial-date">02 Desember 2025</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">
+                                <img src="img/satria.jpg" alt="Satria Hardcore">
+                            </div>
+                            <div class="testimonial-user">
+                                <div class="testimonial-user-name">Satria Hardcore</div>
+                                <div class="testimonial-user-location">Rowokele</div>
+                            </div>
+                            <div class="testimonial-rating">
+                                ⭐⭐⭐⭐⭐
+                            </div>
+                        </div>
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">Joss... Netflix murah cuma disini, beli yang private anti limit screen coyyy.</p>
+                            <div class="testimonial-date">18 November 2025</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">
+                                <img src="img/evan.jpg" alt="Evan Sigma">
+                            </div>
+                            <div class="testimonial-user">
+                                <div class="testimonial-user-name">Evan Sigma</div>
+                                <div class="testimonial-user-location">Rowokele</div>
+                            </div>
+                            <div class="testimonial-rating">
+                                ⭐⭐⭐⭐⭐
+                            </div>
+                        </div>
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">Langganan bstation setaunan lebih cuan drpd bayar bulan2. Download semua anime favorit jd ada stock nonton kalo lg gabut.</p>
+                            <div class="testimonial-date">22 Oktober 2025</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">
+                                <img src="img/gian.jpg" alt="Gian Ungkerrr">
+                            </div>
+                            <div class="testimonial-user">
+                                <div class="testimonial-user-name">Gian Ungkerrr</div>
+                                <div class="testimonial-user-location">Rowokele</div>
+                            </div>
+                            <div class="testimonial-rating">
+                                ⭐⭐⭐⭐⭐
+                            </div>
+                        </div>
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">Nyoba beli prime video  premium 1 bulan yang sharing ternyata bagus bgt library film nya. Banyak konten exclusive yg gak ada di platform lain.</p>
+                            <div class="testimonial-date">10 November 2025</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">
+                                <img src="img/ravi.jpg" alt="Ravi N.">
+                            </div>
+                            <div class="testimonial-user">
+                                <div class="testimonial-user-name">Ravi N.</div>
+                                <div class="testimonial-user-location">Sempor</div>
+                            </div>
+                            <div class="testimonial-rating">
+                                ⭐⭐⭐⭐⭐
+                            </div>
+                        </div>
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">Alight Motion setaunan itu lifesaver bgt buat bikin jj! No watermark, semua efek premium kebuka. Gak perlu crack atau mod lagi ribet dah. Alight Motion premium 1 tahun udh include semua fitur</p>
+                            <div class="testimonial-date">15 September 2025</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">
+                                <img src="img/raditya.jpg" alt="Raditya S.">
+                            </div>
+                            <div class="testimonial-user">
+                                <div class="testimonial-user-name">Raditya S.</div>
+                                <div class="testimonial-user-location">Pengadegang</div>
+                            </div>
+                            <div class="testimonial-rating">
+                                ⭐⭐⭐⭐⭐
+                            </div>
+                        </div>
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">Selalu langganan spotify disini, karena murah cuma 12k dibanding beli asli harganya 30k.</p>
+                            <div class="testimonial-date">13 Juli 2025</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-controls">
+                    <div class="testimonial-control prev" id="testimonialPrev">
+                        <i class="fas fa-chevron-left"></i>
+                    </div>
+                    <div class="testimonial-control next" id="testimonialNext">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+                <div class="testimonial-dots">
+                    <div class="dot active" data-slide="0"></div>
+                    <div class="dot" data-slide="1"></div>
+                    <div class="dot" data-slide="2"></div>
+                    <div class="dot" data-slide="3"></div>
+                    <div class="dot" data-slide="4"></div>
+                    <div class="dot" data-slide="5"></div>
+                    <div class="dot" data-slide="6"></div>
+                    <div class="dot" data-slide="7"></div>
+                    <div class="dot" data-slide="8"></div>
+                    <div class="dot" data-slide="9"></div>
+                    <div class="dot" data-slide="10"></div>
+                    <div class="dot" data-slide="11"></div>
+                    <div class="dot" data-slide="12"></div>
+                    <div class="dot" data-slide="13"></div>
+                    <div class="dot" data-slide="14"></div>
+                    <div class="dot" data-slide="15"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Advantages Section -->
+        <div class="advantages">
+            <h2 class="section-title">Kenapa Memilih Kami?</h2>
+            <div class="advantage-grid">
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h3 class="advantage-title">Fast response</h3>
+                    <p class="advantage-desc">Pesanan diproses dengan sangat cepat</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="advantage-title">Garansi Resmi</h3>
+                    <p class="advantage-desc">Semua produk bergaransi resmi dengan dukungan aftersales terbaik</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="advantage-title">Dukungan 24/7</h3>
+                    <p class="advantage-desc">Customer service siap membantu kapan saja selama 24 jam</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3 class="advantage-title">Terpercaya</h3>
+                    <p class="advantage-desc">Lebih dari 1.200 pelanggan telah mempercayakan kebutuhan mereka pada kami</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Tentang Kami</h3>
+                    <p id="aboutText"></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Kontak Kami</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> <span id="alamat"></span></p>
+                    <p><i class="fas fa-phone"></i> <span id="wa"></span></p>
+                    <p><i class="fas fa-envelope"></i> <span id="email"></span></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Link Cepat</h3>
+                    <a href="index.html">Beranda</a>
+                    <a href="search.html">Cari</a>
+                    <a href="keranjang.html">Keranjang</a>
+                    <a href="profil.html">Profil</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Ikuti Kami</h3>
+                    <div class="social-icons">
+                        <a id="ytLink" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a id="tiktokLink" target="_blank"><i class="fab fa-tiktok"></i></a>
+                        <a id="waLink" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a id="telegramLink" target="_blank"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p id="copyright"></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Product Detail Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <div class="product-detail-header">
+                <div class="product-detail-icon" id="modalIcon"></div>
+                <div class="product-detail-title">
+                    <h3 class="product-detail-name" id="modalName"></h3>
+                    <div class="product-detail-price" id="modalPrice"></div>
+                </div>
+            </div>
+            <div class="product-detail-description" id="modalDescription"></div>
+            <div class="variant-selection" id="variantSelection">
+                <!-- Variants will be loaded by JavaScript -->
+            </div>
+            <button class="add-to-cart-btn" id="addToCartBtn">Tambah ke Keranjang</button>
+        </div>
+    </div>
+
+    <!-- Verification Modal -->
+    <div class="verification-modal" id="verificationModal">
+        <div class="verification-content">
+            <div class="verification-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2 class="verification-title">Terverifikasi</h2>
+            <p class="verification-desc">Renz Store adalah toko terverifikasi dengan reputasi yang sangat baik. Semua produk dijamin original dan bergaransi resmi.</p>
+            <button class="close-verification" id="closeVerification">Mengerti</button>
+        </div>
+    </div>
+
+    <!-- Theme Toggle -->
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <div class="bottom-nav">
+        <a href="index.html" class="nav-item active">
+            <i class="fas fa-home"></i>
+            <span>Beranda</span>
+        </a>
+        <a href="search.html" class="nav-item">
+            <i class="fas fa-search"></i>
+            <span>Cari</span>
+        </a>
+        <a href="keranjang.html" class="nav-item">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Keranjang</span>
+            <span class="cart-badge" id="cartBadge">0</span>
+        </a>
+        <a href="profil.html" class="nav-item">
+            <i class="fas fa-user"></i>
+            <span>Profil</span>
+        </a>
+    </div>
+    
+    <script src="js/config.js"></script>
+    <script>
+        // Import config
+        document.getElementById("bannerImage").src = CONFIG.banner;
+        document.getElementById("storeTitle").innerText = CONFIG.nama + "Renz Store";
+        document.getElementById("profilePic").src = CONFIG.profil;
+        document.getElementById("profileName").innerHTML = CONFIG.nama + ' <i class="fas fa-check-circle" style="color: var(--primary);"></i>';
+        document.getElementById("aboutText").innerText = CONFIG.tentang;
+        document.getElementById("alamat").innerText = CONFIG.alamat;
+        document.getElementById("wa").innerText = CONFIG.sosial_media.whatsapp;
+        document.getElementById("email").innerText = CONFIG.sosial_media.email;
+        document.getElementById("ytLink").href = "https://youtube.com/" + CONFIG.sosial_media.youtube;
+        document.getElementById("tiktokLink").href = "https://tiktok.com/@" + CONFIG.sosial_media.tiktok;
+        document.getElementById("waLink").href = "https://wa.me/" + CONFIG.sosial_media.whatsapp;
+        document.getElementById("telegramLink").href = "https://t.me/" + CONFIG.sosial_media.telegram;
+        document.getElementById("copyright").innerText =
+    `© ${new Date().getFullYear()} ${CONFIG.nama}. All Rights Reserved.`;
+        
+        // DOM Elements
+        const productsContainer = document.getElementById('productsContainer');
+        const productModal = document.getElementById('productModal');
+        const modalIcon = document.getElementById('modalIcon');
+        const modalName = document.getElementById('modalName');
+        const modalPrice = document.getElementById('modalPrice');
+        const modalDescription = document.getElementById('modalDescription');
+        const variantSelection = document.getElementById('variantSelection');
+        const addToCartBtn = document.getElementById('addToCartBtn');
+        const closeModal = document.getElementById('closeModal');
+        const themeToggle = document.getElementById('themeToggle');
+        const cartBadge = document.getElementById('cartBadge');
+        const verifiedBadge = document.getElementById('verifiedBadge');
+        const verificationModal = document.getElementById('verificationModal');
+        const closeVerification = document.getElementById('closeVerification');
+        const testimonialSlider = document.getElementById('testimonialSlider');
+        const testimonialPrev = document.getElementById('testimonialPrev');
+        const testimonialNext = document.getElementById('testimonialNext');
+        const dots = document.querySelectorAll('.dot');
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        let currentSlide = 0;
+        let selectedProduct = null;
+        let selectedVariant = null;
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        function init() {
+            updateCartBadge();
+            renderProducts();
+            setupEventListeners();
+            updateGreeting();
+    
+            const productIdToOpen = localStorage.getItem('openProductId');
+            if (productIdToOpen) {
+                setTimeout(() => {
+                    openProductModal(parseInt(productIdToOpen));
+                    localStorage.removeItem('openProductId'); 
+                }, 500);
+            }
+        }
+
+        function renderProducts() {
+            let productsHTML = '';
+            
+            for (const category in productsData) {
+                productsHTML += `
+                    <div class="product-category">
+                        <h2 class="category-title">${category}</h2>
+                        <div class="products-grid">
+                            ${productsData[category].map(product => `
+                                <div class="product-card" data-id="${product.id}">
+                                    <div class="product-icon">
+                                        <i class="${product.icon}"></i>
+                                    </div>
+                                    <h3 class="product-name">${product.name}</h3>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+            
+            productsContainer.innerHTML = productsHTML;
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Product card click
+            document.querySelectorAll('.product-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const productId = parseInt(card.getAttribute('data-id'));
+                    openProductModal(productId);
+                });
+            });
+
+            // Close modal
+            closeModal.addEventListener('click', closeProductModal);
+
+            // Theme toggle
+            themeToggle.addEventListener('click', toggleTheme);
+
+            // Add to cart
+            addToCartBtn.addEventListener('click', addToCart);
+
+            // Verification badge
+            verifiedBadge.addEventListener('click', () => {
+                verificationModal.style.display = 'block';
+            });
+
+            // Close verification modal
+            closeVerification.addEventListener('click', () => {
+                verificationModal.style.display = 'none';
+            });
+
+            // Testimonial controls
+            testimonialPrev.addEventListener('click', () => {
+                navigateTestimonial(-1);
+            });
+
+            testimonialNext.addEventListener('click', () => {
+                navigateTestimonial(1);
+            });
+
+            // Testimonial dots
+            dots.forEach(dot => {
+                dot.addEventListener('click', () => {
+                    const slideIndex = parseInt(dot.getAttribute('data-slide'));
+                    goToTestimonial(slideIndex);
+                });
+            });
+
+            // FAQ toggles
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    item.classList.toggle('active');
+                });
+            });
+        }
+
+        // Open product modal
+        function openProductModal(productId) {
+            // Find product by ID
+            for (const category in productsData) {
+                const product = productsData[category].find(p => p.id === productId);
+                if (product) {
+                    selectedProduct = product;
+                    break;
+                }
+            }
+
+            if (!selectedProduct) return;
+
+            // Update modal content
+            modalIcon.innerHTML = `<i class="${selectedProduct.icon}"></i>`;
+            modalName.textContent = selectedProduct.name;
+            modalPrice.textContent = `Rp ${selectedProduct.variants[0].price.toLocaleString('id-ID')}`;
+            modalDescription.textContent = selectedProduct.description;
+
+            // Render variants
+            variantSelection.innerHTML = `
+                <h4 class="variant-title">Pilih Varian:</h4>
+                <div class="variant-options">
+                    ${selectedProduct.variants.map((variant, index) => `
+                        <div class="variant-option ${index === 0 ? 'selected' : ''}" data-index="${index}">
+                            <div class="variant-name">${variant.name}</div>
+                            <div class="variant-price">Rp ${variant.price.toLocaleString('id-ID')}</div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+
+            // Set first variant as selected
+            selectedVariant = 0;
+
+            // Add event listeners to variant options
+            document.querySelectorAll('.variant-option').forEach(option => {
+                option.addEventListener('click', () => {
+                    // Remove selected class from all options
+                    document.querySelectorAll('.variant-option').forEach(opt => {
+                        opt.classList.remove('selected');
+                    });
+                    
+                    // Add selected class to clicked option
+                    option.classList.add('selected');
+                    
+                    // Update selected variant
+                    selectedVariant = parseInt(option.getAttribute('data-index'));
+                    
+                    // Update price
+                    modalPrice.textContent = `Rp ${selectedProduct.variants[selectedVariant].price.toLocaleString('id-ID')}`;
+                });
+            });
+
+            // Show modal
+            productModal.style.display = 'block';
+        }
+
+        // Close product modal
+        function closeProductModal() {
+            productModal.style.display = 'none';
+            selectedProduct = null;
+            selectedVariant = null;
+        }
+
+        // Add to cart
+        function addToCart() {
+            if (!selectedProduct) return;
+
+            const variant = selectedProduct.variants[selectedVariant];
+            
+            // Check if product already in cart
+            const existingItemIndex = cart.findIndex(item => 
+                item.productId === selectedProduct.id && item.variantName === variant.name
+            );
+
+            if (existingItemIndex >= 0) {
+                // Update quantity
+                cart[existingItemIndex].quantity += 1;
+            } else {
+                // Add new item
+                cart.push({
+                    productId: selectedProduct.id,
+                    productName: selectedProduct.name,
+                    variantName: variant.name,
+                    price: variant.price,
+                    quantity: 1,
+                    icon: selectedProduct.icon
+                });
+            }
+
+            // Save to localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+            
+            // Update cart badge
+            updateCartBadge();
+            
+            // Show success message
+            showToast(`${selectedProduct.name} (${variant.name}) ditambahkan ke keranjang`);
+            
+            // Close modal
+            closeProductModal();
+        }
+
+        // Update cart badge
+        function updateCartBadge() {
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            cartBadge.textContent = totalItems;
+        }
+
+        // Show toast notification
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.innerHTML = `
+                <i class="fas fa-check-circle"></i>
+                <span>${message}</span>
+            `;
+            
+            document.body.appendChild(toast);
+            
+            // Remove toast after animation
+            setTimeout(() => {
+                toast.remove();
+            }, 3000);
+        }
+
+        // Toggle theme
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            // Update icon
+            themeToggle.innerHTML = newTheme === 'dark' ? 
+                '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        }
+
+        // Navigate testimonial
+        function navigateTestimonial(direction) {
+            const totalSlides = document.querySelectorAll('.testimonial-slide').length;
+            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+            goToTestimonial(currentSlide);
+        }
+
+        // Go to specific testimonial
+        function goToTestimonial(slideIndex) {
+            const slideWidth = testimonialSlider.clientWidth;
+            testimonialSlider.style.transform = `translateX(-${slideIndex * slideWidth}px)`;
+            
+            // Update dots
+            dots.forEach(dot => {
+                const dotIndex = parseInt(dot.getAttribute('data-slide'));
+                dot.classList.toggle('active', dotIndex === slideIndex);
+            });
+            
+            currentSlide = slideIndex;
+        }
+
+        // Update greeting based on time of day
+        function updateGreeting() {
+            const hour = new Date().getHours();
+            let greeting = '';
+            
+            if (hour < 12) greeting = 'Selamat pagi!';
+            else if (hour < 15) greeting = 'Selamat siang!';
+            else if (hour < 19) greeting = 'Selamat sore!';
+            else greeting = 'Selamat malam!';
+            
+            document.getElementById('greeting-text').textContent = greeting + ' Selamat berbelanja!';
+        }
+
+        // Check for saved theme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            themeToggle.innerHTML = savedTheme === 'dark' ? 
+                '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
